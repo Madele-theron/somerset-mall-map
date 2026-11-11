@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0f766e">
+  <title>Somerset Mall Navigator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="bar">
+    <div class="fields">
+      <div class="field">
+        <label for="fromInput">I'm near</label>
+        <input id="fromInput" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Entrance or shop…">
+        <ul id="fromList" class="suggest" hidden></ul>
+      </div>
+      <button id="swapBtn" type="button" aria-label="Swap start and destination">&#8645;</button>
+      <div class="field">
+        <label for="toInput">Take me to</label>
+        <input id="toInput" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Which shop?">
+        <ul id="toList" class="suggest" hidden></ul>
+      </div>
+    </div>
+    <div class="chips" id="chips">
+      <span>I parked at:</span>
+      <button type="button" data-ent="ent-1">Entrance 1</button>
+      <button type="button" data-ent="ent-2">Entrance 2</button>
+      <button type="button" data-ent="ent-3">Entrance 3</button>
+      <button type="button" data-ent="ent-4">Entrance 4</button>
+      <label class="free"><input type="checkbox" id="freeOnly"> Free parking only</label>
+      <button type="button" id="clearBtn" class="ghost">Clear</button>
+    </div>
+  </header>
+
+  <main>
+    <svg id="map" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Schematic map of Somerset Mall, lower level"></svg>
+    <div class="zoom">
+      <button type="button" id="zoomIn" aria-label="Zoom in">+</button>
+      <button type="button" id="zoomOut" aria-label="Zoom out">&minus;</button>
+      <button type="button" id="zoomReset" aria-label="Reset view">&#8962;</button>
+    </div>
+    <div id="toast" hidden></div>
+  </main>
+
+  <section id="sheet" aria-live="polite">
+    <div id="pickCard" hidden></div>
+    <div id="routeCard"></div>
+    <p class="legend">
+      <span class="dot store"></span> shop
+      <span class="dot food"></span> food &amp; services
+      <span class="dot ent"></span> parking entrance
+    </p>
+    <p class="note">Lower Level only. Layout is approximate and the mall is still being renovated, so double-check against the mall's own signs.</p>
+  </section>
+
+  <script src="data.js"></script>
+  <script src="layout.js"></script>
+  <script src="route.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
